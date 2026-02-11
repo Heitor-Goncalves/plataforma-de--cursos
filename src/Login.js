@@ -52,7 +52,6 @@ const Login = ({ onLogin }) => {
             {loading ? 'Entrando...' : 'Entrar'}
           </button>
         </form>
-        <a href="#" className="forgot-password">Esqueci minha senha</a>
       </div>
     </div>
   );
