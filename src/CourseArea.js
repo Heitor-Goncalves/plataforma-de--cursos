@@ -3,7 +3,7 @@ import { useTheme } from './ThemeContext';
 import './CourseArea.css';
 
 const CourseArea = ({ onLogout }) => {
-  const { isDarkMode } = useTheme();
+  //const { isDarkMode } = useTheme();
   const [currentLesson, setCurrentLesson] = useState(0);
   const [completedLessons, setCompletedLessons] = useState([]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Estado para menu hambúrguer
