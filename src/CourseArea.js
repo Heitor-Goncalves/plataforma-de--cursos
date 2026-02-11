@@ -3,7 +3,7 @@ import { useTheme } from './ThemeContext';
 import './CourseArea.css';
 
 const CourseArea = ({ onLogout }) => {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode } = useTheme();
   const [currentLesson, setCurrentLesson] = useState(0);
   const [completedLessons, setCompletedLessons] = useState([]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Estado para menu hambúrguer
@@ -76,9 +76,6 @@ const CourseArea = ({ onLogout }) => {
           <h1>Vídeo Aulas</h1>
         </div>
         <div>
-          <button onClick={toggleTheme} className="theme-toggle">
-            {isDarkMode ? '☀️' : '🌙'}
-          </button>
           <button onClick={onLogout} className="logout-btn">Sair</button>
         </div>
       </header>
@@ -95,7 +92,7 @@ const CourseArea = ({ onLogout }) => {
           </div>
           <div className="lesson-info">
             <h2>{currentVideo.title}</h2>
-            <p>Descrição da aula {currentLesson + 1}.</p>
+            
             <button onClick={handleCompleteLesson} className="complete-btn">
               {completedLessons.includes(currentLesson) ? 'Concluído' : 'Marcar como Concluído'}
             </button>

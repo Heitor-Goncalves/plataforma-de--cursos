@@ -1,30 +1,19 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext } from 'react';
 
 const ThemeContext = createContext();
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => React.useContext(ThemeContext);
 
+// Forçar modo escuro: útil quando queremos apenas o tema escuro ativo.
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === 'dark');
-    }
-  }, []);
-
+  const isDarkMode = true;
   const toggleTheme = () => {
-    const newTheme = !isDarkMode;
-    setIsDarkMode(newTheme);
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    // Intencionalmente vazio — tema fixo em dark mode
   };
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
-      <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
-        {children}
-      </div>
+      <div className="dark-mode">{children}</div>
     </ThemeContext.Provider>
   );
 };
