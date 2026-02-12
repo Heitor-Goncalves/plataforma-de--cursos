@@ -73,7 +73,6 @@ const CourseArea = ({ onLogout }) => {
           <button className="hamburger" onClick={toggleSidebar}>
             ☰
           </button>
-          <h1>Vídeo Aulas</h1>
         </div>
         <div>
           <button onClick={onLogout} className="logout-btn">Sair</button>
